@@ -20,3 +20,14 @@ Approach:
 Skull stripping is used by each of the tools at some stage in their processing pipeline.
 Thus skullstripping will be performed by each method on the native acquired image respectively.
 As we aim to compare the segmentation quality of the aforementioned tools, we will perform the segmentation following the standard procedure as detailed by the respective documentation.
+
+Expected Directory Structure:
+
+data
+└── SUBJECT1
+    ├── SUBJECT1_raw
+    │   └── SUBJECT1_T1.nii
+    └── SUBJECT1_seg
+        └── SUBJECT1_gmwm.nii
+
+
