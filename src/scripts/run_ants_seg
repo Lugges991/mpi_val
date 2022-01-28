@@ -1,0 +1,6 @@
+#!/bin/bash
+dim=3
+img=$1
+op=$2
+ImageMath $dim ${op}mask.nii.gz Normalize $img
+Atropos -d $dim -x ${op}mask.nii.gz -c [3,0] -m [0.1,1x1] -i kmeans[4] -o ${op}_seqg.nii.gz -a $img

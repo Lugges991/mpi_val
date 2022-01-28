@@ -4,6 +4,7 @@ import subprocess
 import configparser
 import time
 import logging
+import glob
 from pathlib import Path
 
 logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
@@ -34,9 +35,10 @@ def list_dirs(path):
     return paths_list
 
 def get_original_image(path, file_ending="*_orig.nii"):
-    for p in Path(path).iterdir():
-        if p.match(file_ending) is not None:
-            return p
+    origs = glob.glob(str(path.joinpath(file_ending)))
+    return origs[0] if origs else None
+
+
 
 def check_or_make_dir(path):
     Path.mkdir(path, parents=True, exist_ok=True)
@@ -57,16 +59,27 @@ def run_all_segmentation_tools(config_path):
 
     # iterate over all subjects
     for sub in subjects:
-        # for each subject get the raw nifti file from 
+        # for each subject get the raw nifti file from the base path
         orig_img = get_original_image(sub)
-        # create folder for each subject
-        s_out_path= out_dir.joinpath(sub.name)
-        check_or_make_dir(s_out_path)
-        print(s_out_path)
+        if orig_img:
+            # create output folder for each subject
+            s_out_path= out_dir.joinpath(sub.name)
+            check_or_make_dir(s_out_path)
 
-    # for each config entry run the run-command specified
-    # for tool, cmd in cfg["TOOLS"].items():
-    #     subprocess.run(cmd.split())
+            # for each tool, run the segmentation
+            print(20*"+")
+            for tn, t_cmd in cfg["TOOLS"].items():
+                t_s_path = s_out_path.joinpath(tn)
+                check_or_make_dir(t_s_path)
+
+                # replace <SUBJECT> placeholder with path to original img of subject
+                t_cmd = t_cmd.replace("<SUBJECT>", str(orig_img))
+                subprocess.run(t_cmd.split())
+
+
+                # how do we handle intermediate outputs???
+        else:
+            logging.info(f"No input image found for subject {sub.name}")
 
 
     # perform post segmentation actions
