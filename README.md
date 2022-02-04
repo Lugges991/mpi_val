@@ -9,11 +9,11 @@ This repo is organized in two parts.
 The used segmentation tools are the following:
 
 - [SPM](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
-- [FSL Fast](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
+- [FSL Fast](https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FAST)
 - [ANT](http://stnava.github.io/ANTs/)
-- [MALP-EM](http://stnava.github.io/ANTs/)
+- [MALP-EM](https://biomedia.doc.ic.ac.uk/software/malp-em/)
 - [FreeSurfer](https://surfer.nmr.mgh.harvard.edu/)
-- [FastSurfer](https://surfer.nmr.mgh.harvard.edu/)
+- [FastSurfer](https://deep-mi.org/research/fastsurfer/)
 
 
 Approach:
