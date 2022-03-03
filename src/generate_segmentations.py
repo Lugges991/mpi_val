@@ -106,7 +106,6 @@ def run_all_segmentation_tools(config_path):
 
 
                 # how do we handle intermediate outputs???
-            break
         else:
             logging.info(f"No input image found for subject {sub.name}")
 
