@@ -89,7 +89,7 @@ def run_all_segmentation_tools(config_path):
                 # replace <SUBJECT> placeholder with path to original img of subject
                 t_cmd = t_cmd.replace("<SUBJECT>", str(orig_img))
                 t_cmd = t_cmd.replace("<OUT>", str(t_s_path.joinpath(f"{sub.name}_seg")))
-                t_cmd = t_cmd.replace("<SKULL>", str(t_s_path.joinpath(f"{sub.name}_skullstrip")))
+                t_cmd = t_cmd.replace("<SKULL>", str(t_s_path.joinpath(f"{sub.name}_skullstrip.nii")))
                 logging.info(t_cmd)
                 # check if t_cmd has more than one bash command, if so, run both separately
                 if ";" in t_cmd:
@@ -108,6 +108,7 @@ def run_all_segmentation_tools(config_path):
                 # how do we handle intermediate outputs???
         else:
             logging.info(f"No input image found for subject {sub.name}")
+
 
 
 
