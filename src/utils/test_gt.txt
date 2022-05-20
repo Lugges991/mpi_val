@@ -1,0 +1,8 @@
+/home/lmahler/data/GMWM_Segmentation9t/me1401/me1401_orig.nii
+/home/lmahler/data/GMWM_Segmentation9t/fb9364/fb9364_orig.nii
+/home/lmahler/data/GMWM_Segmentation9t/el4879/el4879_orig.nii
+/home/lmahler/data/GMWM_Segmentation9t/fb9455/fb9455_orig.nii
+/home/lmahler/data/GMWM_Segmentation9t/me1102/me1102_orig.nii
+/home/lmahler/data/GMWM_Segmentation9t/jb1922/jb1922_orig.nii
+/home/lmahler/data/GMWM_Segmentation9t/vk3464/vk3464_orig.nii
+/home/lmahler/data/GMWM_Segmentation9t/me0801/me0801_orig.nii
