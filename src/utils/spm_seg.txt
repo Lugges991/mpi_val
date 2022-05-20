@@ -1,0 +1,9 @@
+/home/lmahler/data/scratch/spm_val/el4879/el4879_full_spm.nii
+/home/lmahler/data/scratch/spm_val/el7349/el7349_full_spm.nii
+/home/lmahler/data/scratch/spm_val/fb9364/fb9364_full_spm.nii
+/home/lmahler/data/scratch/spm_val/fb9455/fb9455_full_spm.nii
+/home/lmahler/data/scratch/spm_val/jb1922/jb1922_full_spm.nii
+/home/lmahler/data/scratch/spm_val/me0801/me0801_full_spm.nii
+/home/lmahler/data/scratch/spm_val/me1102/me1102_full_spm.nii
+/home/lmahler/data/scratch/spm_val/vk1506/vk1506_full_spm.nii
+/home/lmahler/data/scratch/spm_val/vk3464/vk3464_full_spm.nii
