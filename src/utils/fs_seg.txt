@@ -1,0 +1,10 @@
+/home/lmahler/data/GMWM_Segmentation9t/210525/210525_rca/mri/210525_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/el4879/el4879_rca/mri/el4879_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/el7349/el7349_rca/mri/el7349_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/fb9364/fb9364_rca/mri/fb9364_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/fb9455/fb9455_rca/mri/fb9455_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/jb1922/jb1922_rca/mri/jb1922_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/me0801/me0801_rca/mri/me0801_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/me1102/me1102_rca/mri/me1102_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/vk1506/vk1506_rca/mri/vk1506_fs.nii
+/home/lmahler/data/GMWM_Segmentation9t/vk3464/vk3464_rca/mri/vk3464_fs.nii
