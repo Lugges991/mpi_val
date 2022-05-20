@@ -9,6 +9,8 @@ import pandas as pd
 from tqdm import tqdm
 
 FS_LABELS = [0, 2, 3, 41, 42]
+GM_LABEL = 10
+WM_LABEL = 99
 
 
 def evaluate(gt_img, seg_img, metric_list):
@@ -81,6 +83,15 @@ def to_bool_label_arr(img):
             res.append(arr)
     return np.array(res).astype(bool)
 
+def fs_labels_to_gm_wm(img):
+    img = np.where(img == 3, GM_LABEL, img)
+    img = np.where(img == 42, GM_LABEL, img)
+    
+    img = np.where(img == 2, WM_LABEL, img)
+    img = np.where(img == 41, WM_LABEL, img)
+
+    return img
+
 
 def run_evaluation(gt_txt, seg_txt, config=None):
 
@@ -108,7 +119,10 @@ def run_evaluation(gt_txt, seg_txt, config=None):
         seg_img = seg_obj.get_fdata()
 
         gt_img = clean_labels(gt_img)
+        gt_img = fs_labels_to_gm_wm(gt_img)
+
         seg_img = clean_labels(seg_img)
+        seg_img = fs_labels_to_gm_wm(seg_img)
 
 
         dice = surface_distance.compute_dice_coefficient(gt_img, seg_img)
@@ -130,7 +144,7 @@ def run_evaluation(gt_txt, seg_txt, config=None):
         res.append(res_dic)
 
     res_df = pd.DataFrame(res)
-    res_df.to_csv("./val_results.csv")
+    res_df.to_csv("./spm_val_results.csv")
 
 
 

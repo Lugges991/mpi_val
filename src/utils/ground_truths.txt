@@ -1,4 +1,3 @@
-/home/lmahler/data/GMWM_Segmentation9t/210525/210525_seg/210525_seg.nii
 /home/lmahler/data/GMWM_Segmentation9t/el4879/el4879_seg/el4879_seg.nii
 /home/lmahler/data/GMWM_Segmentation9t/el7349/el7349_seg/el7349_seg.nii
 /home/lmahler/data/GMWM_Segmentation9t/fb9364/fb9364_seg/fb9364_seg.nii
