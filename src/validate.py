@@ -13,31 +13,6 @@ GM_LABEL = 10
 WM_LABEL = 99
 
 
-def evaluate(gt_img, seg_img, metric_list):
-    """
-    Evaluate segmentation against ground truth using the metrics provided.
-
-    Parameters
-    ----------
-    gt_img: np.array 
-        Ground truth segmentation as numpy array with labels according to FreeSurfer labeling convention
-
-    seg_img: np.array
-        Predicted segmentation as numpy array with labels according to FreeSurfer labeling convention
-
-    metric_list: list
-        List of metric instances to be used
-
-    Returns
-    -------
-    res: list
-        list of lists for each metric
-
-    """
-    res = []
-
-    return res
-
 def get_paths_from_txt(txt):
     with open(txt) as f:
         paths = [line.rstrip() for line in f]

@@ -21,11 +21,17 @@ def glob_file(path, g):
 def threshold_img(img, threshold=0.5):
     return np.where(img > threshold, 1, 0)
 
-def contruct_img(c1, c2):
-    new = np.zeros(c1.shape)
-    new = np.where(c1 == 1, GM_LABEL, new)
-    new = np.where(c2 == 1, WM_LABEL, new)
-    return new.astype(int)
+def contruct_img(c1, c2, c3, c4, c5):
+    # bg_mask = np.where((c1 != 0) and c2!= 0, 1, 0)
+    new = np.array([c1, c2,c3, c4, c5])
+    max_vals = np.argmax(new, axis=0)
+
+    img = np.zeros(max_vals.shape, dtype=int)
+
+    img = np.where(max_vals == 0, GM_LABEL, img)
+    img = np.where(max_vals == 1, WM_LABEL, img)
+    # img = np.where(bg_mask == 1, 0, img)
+    return img
 
 
 def spm_to_fs_labels(base_path):
@@ -35,17 +41,21 @@ def spm_to_fs_labels(base_path):
         files = list_files(sub)
         c1_path = glob_file(sub, "c1*")
         c2_path = glob_file(sub, "c2*")
+        c3_path = glob_file(sub, "c3*")
+        c4_path = glob_file(sub, "c4*")
+        c5_path = glob_file(sub, "c5*")
 
         c1_obj = nib.load(c1_path)
         c2_obj = nib.load(c2_path)
+        c3_obj = nib.load(c3_path)
+        c4_obj = nib.load(c4_path)
+        c5_obj = nib.load(c5_path)
 
-        c1_bin_img = threshold_img(c1_obj.get_fdata())
-        c2_bin_img = threshold_img(c2_obj.get_fdata())
 
-        full_img = contruct_img(c1_bin_img, c2_bin_img)
+        full_img = contruct_img(c1_obj.get_fdata(), c2_obj.get_fdata(), c3_obj.get_fdata(), c4_obj.get_fdata(), c5_obj.get_fdata(),)
 
         full_img_obj = nib.nifti1.Nifti1Image(full_img, affine=c1_obj.affine, header=c1_obj.header)
-        new_name = c1_path.name.strip("c1").strip("_orig.nii") + "_full_spm.nii"
+        new_name = c1_path.name.strip("c1").strip("_orig.nii") + "_new_full_spm.nii"
         nib.save(full_img_obj, Path.joinpath(sub, new_name))
         print(f"Saved {c1_path.name.strip('c1').strip('_orig.nii')}...")
 

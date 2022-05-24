@@ -6,6 +6,5 @@
 /home/lmahler/data/GMWM_Segmentation9t/jb1922/jb1922_seg/jb1922_seg.nii
 /home/lmahler/data/GMWM_Segmentation9t/me0801/me0801_seg/me0801_seg.nii
 /home/lmahler/data/GMWM_Segmentation9t/me1102/me1102_seg/me1102_seg.nii
-/home/lmahler/data/GMWM_Segmentation9t/me1401/me1401_seg/me1401_seg.nii
 /home/lmahler/data/GMWM_Segmentation9t/vk1506/vk1506_seg/vk1506_seg.nii
 /home/lmahler/data/GMWM_Segmentation9t/vk3464/vk3464_seg/vk3464_seg.nii
