@@ -22,7 +22,6 @@ def threshold_img(img, threshold=0.5):
     return np.where(img > threshold, 1, 0)
 
 def contruct_img(c1, c2, c3, c4, c5):
-    # bg_mask = np.where((c1 != 0) and c2!= 0, 1, 0)
     new = np.array([c1, c2,c3, c4, c5])
     max_vals = np.argmax(new, axis=0)
 
@@ -30,7 +29,7 @@ def contruct_img(c1, c2, c3, c4, c5):
 
     img = np.where(max_vals == 0, GM_LABEL, img)
     img = np.where(max_vals == 1, WM_LABEL, img)
-    # img = np.where(bg_mask == 1, 0, img)
+    img = np.where(np.logical_and(c1 == 0, c2 == 0), 0, img)
     return img
 
 
