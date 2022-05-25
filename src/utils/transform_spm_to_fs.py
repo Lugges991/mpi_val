@@ -1,22 +1,10 @@
 import numpy as np
 import nibabel as nib
 from pathlib import Path
+from tools import list_dirs, list_files, glob_file
 
 GM_LABEL = 10
 WM_LABEL = 99
-
-def list_dirs(base_path):
-    subject_dirs = []
-    for p in Path(base_path).iterdir():
-        if p.is_dir():
-            subject_dirs.append(p)
-    return subject_dirs
-
-def list_files(dir):
-    return [x for x in dir.glob("**/*") if x.is_file()]
-
-def glob_file(path, g):
-    return [x for x in path.glob(g) if x.is_file()][0]
 
 def threshold_img(img, threshold=0.5):
     return np.where(img > threshold, 1, 0)
