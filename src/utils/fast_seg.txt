@@ -1,0 +1,12 @@
+/home/lmahler/data/scratch/fast_malpem_val/me1401/fast/me1401_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/fb9364/fast/fb9364_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/el4879/fast/el4879_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/fb9455/fast/fb9455_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/vk1506/fast/vk1506_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/me1102/fast/me1102_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/gh9BNST12/fast/gh9BNST12_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/el7349/fast/el7349_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/jb1922/fast/jb1922_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/vk3464/fast/vk3464_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/gh9BNST09/fast/gh9BNST09_seg_pveseg.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/me0801/fast/me0801_seg_pveseg.nii.gz

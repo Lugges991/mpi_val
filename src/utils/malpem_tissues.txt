@@ -1,0 +1,14 @@
+/home/lmahler/data/scratch/fast_malpem_val/me1401/malpem/me1401_seg/me1401_skullstrip_06-05-22_23-01-07/me1401_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/fb9364/malpem/fb9364_seg/fb9364_skullstrip_06-05-22_18-10-40/fb9364_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/el4879/malpem/el4879_seg/el4879_skullstrip_06-05-22_20-08-50/el4879_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/fb9455/malpem/fb9455_seg/fb9455_skullstrip_06-05-22_17-21-28/fb9455_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/vk1506/malpem/vk1506_seg/vk1506_skullstrip_06-05-22_22-04-49/vk1506_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/me1102/malpem/me1102_seg/me1102_skullstrip_06-05-22_23-52-14/me1102_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/gh9BNST12/malpem/gh9BNST12_seg/gh9BNST12_skullstrip_06-05-22_15-37-42/gh9BNST12_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/el7349/malpem/el7349_seg/el7349_skullstrip_06-05-22_19-04-44/el7349_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/el7349/malpem/subj_06-05-22_10-57-53/subj_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/jb1922/malpem/jb1922_seg/jb1922_skullstrip_06-05-22_14-42-58/jb1922_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/jb1922/malpem/jb1922_seg/jb1922_skullstrip_06-05-22_13-30-36/jb1922_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/vk3464/malpem/vk3464_seg/vk3464_skullstrip_06-05-22_21-12-24/vk3464_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/gh9BNST09/malpem/gh9BNST09_seg/gh9BNST09_skullstrip_06-05-22_16-23-56/gh9BNST09_skullstrip_MALPEM_tissues.nii.gz
+/home/lmahler/data/scratch/fast_malpem_val/me0801/malpem/me0801_seg/me0801_skullstrip_07-05-22_00-47-49/me0801_skullstrip_MALPEM_tissues.nii.gz
