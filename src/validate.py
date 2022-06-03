@@ -1,3 +1,4 @@
+import time
 import nibabel as nib
 import numpy as np
 import argparse
@@ -7,6 +8,7 @@ from nilearn.image import resample_img
 import surface_distance
 import pandas as pd
 from tqdm import tqdm
+from utils.tools import timeit, Timer
 
 FS_LABELS = [0, 2, 3, 41, 42]
 GM_LABEL = 10
@@ -38,6 +40,7 @@ def check_gt_seg_paths(gt, seg):
 
 def clean_labels(img):
     """ Replace all labels in img that are not in FS_LABELS with the background label 0"""
+    img = img.astype(int)
     unq = np.unique(img)
     ind = np.isin(unq, FS_LABELS)
     for i, val in enumerate(ind):
@@ -68,11 +71,11 @@ def fs_labels_to_gm_wm(img):
     return img
 
 
-def run_evaluation(gt_txt, seg_txt, config=None):
+def run_evaluation(gt_txt, seg_txt, results_path="./results.csv", config=None):
 
     if config is not None:
         pass
-
+    timer = Timer()
     gt_paths = get_paths_from_txt(gt_txt)
     seg_paths = get_paths_from_txt(seg_txt)
 
@@ -88,18 +91,23 @@ def run_evaluation(gt_txt, seg_txt, config=None):
         gt_obj= nib.load(gt)
         seg_obj= nib.load(seg)
 
+
         if gt_obj.shape != seg_obj.shape:
+            timer.start()
             seg_obj = resample_img(seg_obj, target_affine=gt_obj.affine, target_shape=gt_obj.shape)
+            timer.stop("resampling")
         gt_img = gt_obj.get_fdata()
         seg_img = seg_obj.get_fdata()
 
+        print("Cleaning gt labels")
         gt_img = clean_labels(gt_img)
         gt_img = fs_labels_to_gm_wm(gt_img)
 
+        print("Cleaning seg labels")
         seg_img = clean_labels(seg_img)
         seg_img = fs_labels_to_gm_wm(seg_img)
-
-
+        
+        print("Computing dice coefficient")
         dice = surface_distance.compute_dice_coefficient(gt_img, seg_img)
 
         gt_bins = to_bool_label_arr(gt_img)
@@ -108,18 +116,21 @@ def run_evaluation(gt_txt, seg_txt, config=None):
         sds = []
         asds = []
         hd95s = []
-
+        
         for i in range(gt_bins.shape[0]):
+            timer.start()
+            print(f"Processing label {i} out of {len(gt_bins.shape[0])}")
             sd = surface_distance.compute_surface_distances(gt_bins[i], seg_bins[i], [1,1,1])
             sds.append(sd)
             asds.append(surface_distance.compute_average_surface_distance(sd))
             hd95s.append(surface_distance.compute_robust_hausdorff(sd, 95.))
+            timer.stop(f"iteration {i}")
            
         res_dic = {"Name": gt.name.strip("_seg.nii"), "Dice": dice, "AverageSurfaceDistance": asds, "Hausdorff": hd95s}
         res.append(res_dic)
 
     res_df = pd.DataFrame(res)
-    res_df.to_csv("./spm_val_results.csv")
+    res_df.to_csv(results_path)
 
 
 
@@ -135,6 +146,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluation of Segmentation Tools")
     parser.add_argument("--seg", help="Text file with paths to segmentation files")
     parser.add_argument("--gt", help="Text file with paths to ground truth labels. Have to correspond to segmentation paths in --seg")
+    parser.add_argument("--res", help="Path where the results should be stored")
     args = parser.parse_args()
 
-    run_evaluation(args.gt, args.seg)
+    run_evaluation(args.gt, args.seg, args.res)

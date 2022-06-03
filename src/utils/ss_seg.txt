@@ -1,0 +1,14 @@
+/home/lmahler/data/scratch/synthseg_out/210525/210525_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/el4879/el4879_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/el7349/el7349_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/fb9364/fb9364_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/fb9455/fb9455_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/gh9BNST09/gh9BNST09_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/gh9BNST12/gh9BNST12_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/jb1922/jb1922_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/me0801/me0801_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/me1102/me1102_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/me1401/me1401_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/pmCHST2/pmCHST2_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/vk1506/vk1506_ss_gmwm.nii
+/home/lmahler/data/scratch/synthseg_out/vk3464/vk3464_ss_gmwm.nii

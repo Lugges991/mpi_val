@@ -1,0 +1,10 @@
+/home/lmahler/data/scratch/fastsurfer_val/210525_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/el4879_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/el7349_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/fb9364_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/fb9455_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/jb1922_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/me0801_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/me1102_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/vk1506_fastsurfer.nii
+/home/lmahler/data/scratch/fastsurfer_val/vk3464_fastsurfer.nii
