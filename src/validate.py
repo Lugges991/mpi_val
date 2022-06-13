@@ -101,12 +101,11 @@ def run_evaluation(gt_txt, seg_txt, results_path="./results.csv", config=None):
 
         print("Cleaning gt labels")
         gt_img = clean_labels(gt_img)
-        gt_img = fs_labels_to_gm_wm(gt_img)
+        # gt_img = fs_labels_to_gm_wm(gt_img)
 
         # cast the shit to int...
         gt_img = gt_img.astype(int)
         seg_img = seg_img.astype(int)
-
 
         # print("Cleaning seg labels")
         # seg_img = clean_labels(seg_img)
@@ -131,17 +130,17 @@ def run_evaluation(gt_txt, seg_txt, results_path="./results.csv", config=None):
         for i in range(gt_bins.shape[0]):
             timer.start()
             print(f"Processing label {i+1} out of {gt_bins.shape[0]}")
-            sd = surface_distance.compute_surface_distances(gt_bins[i], seg_bins[i], [1,1,1])
+            sd = surface_distance.compute_surface_distances(gt_bins[i], seg_bins[i], [0.6, 0.6, 0.6])
             sds.append(sd)
             asds.append(surface_distance.compute_average_surface_distance(sd))
             hd95s.append(surface_distance.compute_robust_hausdorff(sd, 95.))
-            timer.stop(f"iteration {i}")
+            timer.stop(f"iteration {i+1}")
            
         res_dic = {"Name": gt.name.strip("_seg.nii"), "Dice": dice, "AverageSurfaceDistance": asds, "Hausdorff": hd95s}
         res.append(res_dic)
 
     res_df = pd.DataFrame(res)
-    res_df.to_csv(results_path)
+    res_df.to_csv(results_path, index=False)
 
 
 
