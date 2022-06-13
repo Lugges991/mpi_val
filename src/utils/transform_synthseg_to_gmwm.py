@@ -13,10 +13,10 @@ SS_WM = [2, 41]
 def create_gmwm_img(img):
     img = img.astype(int)
     new = np.zeros(img.shape, dtype=int)
-    new = np.where(img == SS_GM[0], GM_LABEL, new)
-    new = np.where(img == SS_GM[1], GM_LABEL, new)
-    new = np.where(img == SS_WM[0], WM_LABEL, new)
-    new = np.where(img == SS_WM[1], WM_LABEL, new)
+    new = np.where(img==42, 42, new)
+    new = np.where(img==3, 3, new)
+    new = np.where(img==41, 41, new)
+    new = np.where(img==2, 2, new)
     return new
 
 

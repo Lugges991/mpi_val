@@ -47,7 +47,7 @@ def clean_labels(img):
         if not val:
             img = np.where(img == unq[i], 0, img)
 
-    return img.astype(int)
+    return img
 
 def to_bool_label_arr(img):
     """ Transform img to binary label array where each dimension encodes one label"""
@@ -91,11 +91,11 @@ def run_evaluation(gt_txt, seg_txt, results_path="./results.csv", config=None):
         gt_obj= nib.load(gt)
         seg_obj= nib.load(seg)
 
-
         if gt_obj.shape != seg_obj.shape:
             timer.start()
-            seg_obj = resample_img(seg_obj, target_affine=gt_obj.affine, target_shape=gt_obj.shape)
+            seg_obj = resample_img(seg_obj, target_affine=gt_obj.affine, target_shape=gt_obj.shape, interpolation="nearest")
             timer.stop("resampling")
+        
         gt_img = gt_obj.get_fdata()
         seg_img = seg_obj.get_fdata()
 
@@ -103,12 +103,23 @@ def run_evaluation(gt_txt, seg_txt, results_path="./results.csv", config=None):
         gt_img = clean_labels(gt_img)
         gt_img = fs_labels_to_gm_wm(gt_img)
 
-        print("Cleaning seg labels")
-        seg_img = clean_labels(seg_img)
-        seg_img = fs_labels_to_gm_wm(seg_img)
+        # cast the shit to int...
+        gt_img = gt_img.astype(int)
+        seg_img = seg_img.astype(int)
+
+
+        # print("Cleaning seg labels")
+        # seg_img = clean_labels(seg_img)
+        # seg_img = fs_labels_to_gm_wm(seg_img)
         
         print("Computing dice coefficient")
+
+        # if np.unique(seg_img) != np.array([0, 10, 99]):
+        #     pass
+        # else:
+        timer.start()
         dice = surface_distance.compute_dice_coefficient(gt_img, seg_img)
+        timer.stop(f"Dice")
 
         gt_bins = to_bool_label_arr(gt_img)
         seg_bins = to_bool_label_arr(seg_img)
@@ -119,7 +130,7 @@ def run_evaluation(gt_txt, seg_txt, results_path="./results.csv", config=None):
         
         for i in range(gt_bins.shape[0]):
             timer.start()
-            print(f"Processing label {i} out of {len(gt_bins.shape[0])}")
+            print(f"Processing label {i+1} out of {gt_bins.shape[0]}")
             sd = surface_distance.compute_surface_distances(gt_bins[i], seg_bins[i], [1,1,1])
             sds.append(sd)
             asds.append(surface_distance.compute_average_surface_distance(sd))

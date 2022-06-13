@@ -3,6 +3,7 @@ import nibabel as nib
 from tools import list_dirs, list_files, glob_file
 from pathlib import Path
 
+FS_LABELS = [0, 2, 3, 41, 42]
 
 GM_LABEL = 10
 WM_LABEL = 99
@@ -22,13 +23,13 @@ def aparaseg_to_aseg(img):
     img[img >= 1000] = 3
     return img
 
-def aseg_to_gmwm(img):
+def aseg_to_fs_gmwm(img):
     img = img.astype(int)
     new = np.zeros(img.shape, dtype=int)
-    new = np.where(img==42, GM_LABEL, new)
-    new = np.where(img==3, GM_LABEL, new)
-    new = np.where(img==41, WM_LABEL, new)
-    new = np.where(img==2, WM_LABEL, new)
+    new = np.where(img==42, 42, new)
+    new = np.where(img==3, 3, new)
+    new = np.where(img==41, 41, new)
+    new = np.where(img==2, 2, new)
     return new
 
 
@@ -42,9 +43,10 @@ def transform_fastsurfer_to_gmwm(input_txt, output_path):
         sub_obj = nib.load(sub_path)
         sub_img = sub_obj.get_fdata()
 
-        new_img = aseg_to_gmwm(aparaseg_to_aseg(sub_img))
+        new_img = aparaseg_to_aseg(sub_img)
+        new_img = aseg_to_fs_gmwm(new_img)
 
-        new_sub = nib.nifti1.Nifti1Image(new_img, affine=sub_obj.affine, header=sub_obj.header)
+        new_sub = nib.nifti1.Nifti1Image(new_img.astype(np.int32), affine=sub_obj.affine, header=sub_obj.header)
         print(f"saving {sub_path.name}")
 
         nib.save(new_sub, Path.joinpath(Path(output_path), sub_path.name))
